@@ -183,7 +183,7 @@ export default function TablaMunicipios({ municipios }: TablaMunicipiosProps) {
               sortedMunicipios.map((muni, index) => (
                 <tr key={index} className="hover:bg-gray-50">
                   <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-500">
-                    {index + 1}
+                    {muni.numeroIntegracion}
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
                     {muni.departamento}

@@ -87,8 +87,7 @@ function App() {
 
       const parsedMunicipios: MunicipioData[] = lines
         .slice(1)
-        .filter(line => line.trim() && !line.match(/^,+$/)) // Filtrar líneas vacías o solo comas
-        .map(line => {
+        .map((line, index) => {
           const fields = parseCSVLine(line);
           const departamento = fields[0]?.trim() || '';
           const municipio = fields[1]?.trim() || '';
@@ -98,6 +97,7 @@ function App() {
             departamento,
             municipio,
             solvente: status === 'SOLVENTE',
+            numeroIntegracion: index + 1, // Número permanente basado en el orden del CSV
           };
         })
         .filter(m => m.departamento && m.municipio);

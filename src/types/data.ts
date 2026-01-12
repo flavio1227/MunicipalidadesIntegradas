@@ -2,6 +2,7 @@ export interface MunicipioData {
   departamento: string;
   municipio: string;
   solvente: boolean;
+  numeroIntegracion: number;
 }
 
 export interface DepartmentStats {
