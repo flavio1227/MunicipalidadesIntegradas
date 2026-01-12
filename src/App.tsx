@@ -62,15 +62,41 @@ function App() {
         throw new Error('El archivo CSV está vacío');
       }
 
+      // Función para parsear una línea CSV correctamente
+      const parseCSVLine = (line: string): string[] => {
+        const result: string[] = [];
+        let current = '';
+        let inQuotes = false;
+
+        for (let i = 0; i < line.length; i++) {
+          const char = line[i];
+          
+          if (char === '"') {
+            inQuotes = !inQuotes;
+          } else if (char === ',' && !inQuotes) {
+            result.push(current.trim());
+            current = '';
+          } else {
+            current += char;
+          }
+        }
+        result.push(current.trim());
+        return result;
+      };
+
       const parsedMunicipios: MunicipioData[] = lines
         .slice(1)
-        .filter(line => line.trim())
+        .filter(line => line.trim() && !line.match(/^,+$/)) // Filtrar líneas vacías o solo comas
         .map(line => {
-          const [departamento, municipio, status] = line.split(',').map(s => s.trim());
+          const fields = parseCSVLine(line);
+          const departamento = fields[0]?.trim() || '';
+          const municipio = fields[1]?.trim() || '';
+          const status = fields[2]?.trim().toUpperCase() || '';
+          
           return {
             departamento,
             municipio,
-            solvente: status.toUpperCase() === 'INTEGRADO',
+            solvente: status === 'SOLVENTE',
           };
         })
         .filter(m => m.departamento && m.municipio);
