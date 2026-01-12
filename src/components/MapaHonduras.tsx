@@ -154,7 +154,7 @@ export default function MapaHonduras({ departmentStats }: MapaHondurasProps) {
           </div>
           <div className="flex items-center gap-2">
             <div className="w-4 h-4 rounded" style={{ backgroundColor: '#BDBDBD' }}></div>
-            <span className="text-gray-700">Sin datos</span>
+            <span className="text-gray-700">Municipalidades no integradas</span>
           </div>
         </div>
       </div>
@@ -169,7 +169,7 @@ export default function MapaHonduras({ departmentStats }: MapaHondurasProps) {
           >
             <div className="font-semibold mb-1">{tooltip.departamento}</div>
             {!tooltip.stats || tooltip.stats.total === 0 ? (
-              <div className="text-gray-600">Sin datos</div>
+              <div className="text-gray-600">Municipalidades no integradas</div>
             ) : (
               <>
                 <div>Solventes: {tooltip.stats.solventes}</div>
