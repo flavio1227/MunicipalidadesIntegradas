@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import TablaMunicipios from './components/TablaMunicipios';
 import MapaHonduras from './components/MapaHonduras';
-import { MapPin } from 'lucide-react';
+import { MapPin, ArrowLeft } from 'lucide-react';
 import { MunicipioData, DepartmentStats } from './types/data';
 
 function App() {
@@ -132,16 +132,25 @@ function App() {
     <div className="min-h-screen bg-gray-100">
       <header className="bg-white shadow-sm border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-          <div className="flex items-center gap-3">
-            <MapPin className="w-8 h-8 text-blue-600" />
-            <div>
-              <h1 className="text-2xl font-bold text-gray-900">
-                Municipalidades Integradas al SIGEM
-              </h1>
-              <p className="text-sm text-gray-600 mt-1">
-                República de Honduras
-              </p>
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-3">
+              <MapPin className="w-8 h-8 text-blue-600" />
+              <div>
+                <h1 className="text-2xl font-bold text-gray-900">
+                  Municipalidades Integradas al SIGEM
+                </h1>
+                <p className="text-sm text-gray-600 mt-1">
+                  República de Honduras
+                </p>
+              </div>
             </div>
+            <a
+              href="https://flavio1227.github.io/SIGEM1.1/"
+              className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-200 shadow-sm"
+            >
+              <ArrowLeft className="w-4 h-4" />
+              <span className="font-medium">Regresar al SIGEM</span>
+            </a>
           </div>
         </div>
       </header>
