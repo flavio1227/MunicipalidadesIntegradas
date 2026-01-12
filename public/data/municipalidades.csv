@@ -1,0 +1,48 @@
+departamento,municipio,status,fecha,observaciones
+Atlántida,La Ceiba,Integrado,2024-01-15,Sistema operativo
+Atlántida,Tela,Integrado,2024-02-20,Integración completa
+Atlántida,El Porvenir,En proceso,2024-03-10,En fase de pruebas
+Atlántida,Jutiapa,No integrado,,Pendiente de recursos
+Colón,Trujillo,Integrado,2024-01-25,Sistema operativo
+Colón,Tocoa,En proceso,2024-03-05,En capacitación
+Colón,Bonito Oriental,No integrado,,Sin asignación
+Comayagua,Comayagua,Integrado,2023-12-10,Sistema operativo
+Comayagua,Siguatepeque,Integrado,2024-01-05,Integración completa
+Comayagua,La Libertad,En proceso,2024-02-15,En implementación
+Copán,Santa Rosa de Copán,Integrado,2024-01-20,Sistema operativo
+Copán,Corquín,En proceso,2024-03-01,En fase inicial
+Copán,Dolores,No integrado,,Pendiente
+Cortés,San Pedro Sula,Integrado,2023-11-01,Sistema operativo
+Cortés,Choloma,Integrado,2023-12-15,Integración completa
+Cortés,La Lima,Integrado,2024-01-10,Sistema operativo
+Cortés,Villanueva,En proceso,2024-02-20,En pruebas finales
+El Paraíso,Yuscarán,Integrado,2024-02-01,Sistema operativo
+El Paraíso,Danlí,En proceso,2024-03-05,En capacitación
+El Paraíso,El Paraíso,No integrado,,Sin recursos
+Francisco Morazán,Tegucigalpa,Integrado,2023-10-01,Sistema operativo
+Francisco Morazán,Talanga,Integrado,2024-01-12,Integración completa
+Francisco Morazán,Valle de Ángeles,Integrado,2024-02-05,Sistema operativo
+Francisco Morazán,Lepaterique,En proceso,2024-03-08,En implementación
+Gracias a Dios,Puerto Lempira,En proceso,2024-03-15,En fase inicial
+Gracias a Dios,Brus Laguna,No integrado,,Sin conectividad
+Intibucá,La Esperanza,Integrado,2024-01-18,Sistema operativo
+Intibucá,Jesús de Otoro,En proceso,2024-02-25,En capacitación
+Intibucá,Yamaranguila,No integrado,,Pendiente
+Islas de la Bahía,Roatán,Integrado,2024-01-08,Sistema operativo
+Islas de la Bahía,Útila,En proceso,2024-02-28,En pruebas
+La Paz,La Paz,Integrado,2024-01-22,Sistema operativo
+La Paz,Marcala,En proceso,2024-03-02,En implementación
+Lempira,Gracias,Integrado,2024-02-10,Sistema operativo
+Lempira,La Campa,No integrado,,Sin asignación
+Ocotepeque,Ocotepeque,Integrado,2024-01-28,Sistema operativo
+Ocotepeque,La Labor,No integrado,,Pendiente
+Olancho,Juticalpa,Integrado,2024-01-16,Sistema operativo
+Olancho,Catacamas,En proceso,2024-02-18,En capacitación
+Olancho,Campamento,No integrado,,Sin recursos
+Santa Bárbara,Santa Bárbara,Integrado,2024-02-03,Sistema operativo
+Santa Bárbara,Quimistán,En proceso,2024-03-12,En fase inicial
+Valle,Nacaome,Integrado,2024-01-30,Sistema operativo
+Valle,San Lorenzo,En proceso,2024-03-06,En implementación
+Yoro,Yoro,Integrado,2024-02-08,Sistema operativo
+Yoro,El Progreso,Integrado,2024-02-14,Integración completa
+Yoro,Olanchito,En proceso,2024-03-09,En pruebas
