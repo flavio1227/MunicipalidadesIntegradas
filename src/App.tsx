@@ -50,7 +50,8 @@ function App() {
 
   const loadDataFromCSV = async () => {
     try {
-      const response = await fetch('/data/municipalidades.csv');
+      const baseUrl = import.meta.env.BASE_URL;
+      const response = await fetch(`${baseUrl}data/municipalidades.csv`);
       if (!response.ok) {
         throw new Error('No se encontró el archivo de datos');
       }

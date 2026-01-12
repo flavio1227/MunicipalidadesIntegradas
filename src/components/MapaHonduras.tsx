@@ -60,7 +60,7 @@ export default function MapaHonduras({ departmentStats }: MapaHondurasProps) {
     if (!svgContainerRef.current) return;
 
     // Load SVG map
-    fetch('/maps/honduras_departamentos.svg')
+    fetch(`${import.meta.env.BASE_URL}maps/honduras_departamentos.svg`)
       .then((response) => response.text())
       .then((svgText) => {
         if (!svgContainerRef.current) return;
