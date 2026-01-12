@@ -1,5 +1,5 @@
 import { useState, useMemo } from 'react';
-import { ArrowUpDown } from 'lucide-react';
+import { ArrowUpDown, Search } from 'lucide-react';
 import { MunicipioData } from '../types/data';
 
 interface TablaMunicipiosProps {
@@ -14,6 +14,7 @@ export default function TablaMunicipios({ municipios }: TablaMunicipiosProps) {
   const [sortDirection, setSortDirection] = useState<SortDirection>('asc');
   const [filterDepartamento, setFilterDepartamento] = useState<string>('');
   const [filterEstatus, setFilterEstatus] = useState<string>('');
+  const [searchQuery, setSearchQuery] = useState<string>('');
 
   const handleSort = (field: SortField) => {
     if (sortField === field) {
@@ -31,9 +32,12 @@ export default function TablaMunicipios({ municipios }: TablaMunicipiosProps) {
       const matchesEstatus = filterEstatus === '' ||
         (filterEstatus === 'solvente' && muni.solvente) ||
         (filterEstatus === 'insolvente' && !muni.solvente);
-      return matchesDepartamento && matchesEstatus;
+      const matchesSearch = searchQuery === '' ||
+        muni.departamento.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        muni.municipio.toLowerCase().includes(searchQuery.toLowerCase());
+      return matchesDepartamento && matchesEstatus && matchesSearch;
     });
-  }, [municipios, filterDepartamento, filterEstatus]);
+  }, [municipios, filterDepartamento, filterEstatus, searchQuery]);
 
   // Sort municipios
   const sortedMunicipios = useMemo(() => {
@@ -77,6 +81,23 @@ export default function TablaMunicipios({ municipios }: TablaMunicipiosProps) {
   return (
     <div className="bg-white rounded-lg shadow overflow-hidden">
       <div className="p-4 border-b border-gray-200">
+        <div className="mb-4">
+          <label className="block text-sm font-medium text-gray-700 mb-2">
+            Buscar Municipio o Departamento
+          </label>
+          <div className="relative">
+            <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+              <Search className="h-5 w-5 text-gray-400" />
+            </div>
+            <input
+              type="text"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              placeholder="Buscar por nombre de municipio o departamento..."
+              className="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+            />
+          </div>
+        </div>
         <div className="flex flex-wrap gap-4">
           <div className="flex-1 min-w-[200px]">
             <label className="block text-sm font-medium text-gray-700 mb-1">
@@ -119,6 +140,9 @@ export default function TablaMunicipios({ municipios }: TablaMunicipiosProps) {
         <table className="min-w-full divide-y divide-gray-200">
           <thead className="bg-gray-50">
             <tr>
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-700 uppercase tracking-wider">
+                #
+              </th>
               <th
                 className="px-6 py-3 text-left text-xs font-medium text-gray-700 uppercase tracking-wider cursor-pointer hover:bg-gray-100"
                 onClick={() => handleSort('departamento')}
@@ -151,13 +175,16 @@ export default function TablaMunicipios({ municipios }: TablaMunicipiosProps) {
           <tbody className="bg-white divide-y divide-gray-200">
             {sortedMunicipios.length === 0 ? (
               <tr>
-                <td colSpan={3} className="px-6 py-8 text-center text-gray-500">
+                <td colSpan={4} className="px-6 py-8 text-center text-gray-500">
                   No se encontraron municipios con los filtros seleccionados
                 </td>
               </tr>
             ) : (
               sortedMunicipios.map((muni, index) => (
                 <tr key={index} className="hover:bg-gray-50">
+                  <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-500">
+                    {index + 1}
+                  </td>
                   <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
                     {muni.departamento}
                   </td>
